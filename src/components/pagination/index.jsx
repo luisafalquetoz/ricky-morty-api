@@ -1,7 +1,11 @@
 import { useState } from "react";
-import { Container } from "./style"
+import { Container } from "./style";
 
-export const Pagination = (pagination, fetchNextPage, fetchPreviousPage) => {
+export const Pagination = ({
+    pagination,
+    fetchNextPage,
+    fetchPreviousPage,
+}) => {
     const [currentPage, setCurrentPage] = useState(1);
 
     const previousPage = pagination?.prev ? currentPage - 1 : null;
@@ -11,24 +15,32 @@ export const Pagination = (pagination, fetchNextPage, fetchPreviousPage) => {
     const nextPageDisabledButton = currentPage === pagination?.pages;
 
     const handlePreviousPage = () => {
-        setCurrentPage((prevState) => prevState - 1)
-        fetchPreviousPage(pagination?.prev)
+        setCurrentPage((prevState) => prevState - 1);
+        fetchPreviousPage(pagination?.prev);
     };
 
     const handleNextPage = () => {
-        setCurrentPage((prevState) => prevState + 1)
-        fetchNextPage(pagination?.next)
+        setCurrentPage((prevState) => prevState + 1);
+        fetchNextPage(pagination?.next);
     };
 
     return (
         <Container>
-            <button onClick={handlePreviousPage} disabled={previousPageDisabledButton}>&lt;</button>
+            <button
+                onClick={handlePreviousPage}
+                disabled={previousPageDisabledButton}
+            >
+                &lt;
+            </button>
             <div className="container-page">
                 <p className="page">{previousPage}</p>
                 <p className="current-page">{currentPage}</p>
                 <p className="page">{nextPage}</p>
             </div>
-            <button onClick={handleNextPage} disabled={nextPageDisabledButton}>&gt;</button>
+
+            <button onClick={handleNextPage} disabled={nextPageDisabledButton}>
+                &gt;
+            </button>
         </Container>
     );
 };

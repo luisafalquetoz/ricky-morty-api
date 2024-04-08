@@ -8,12 +8,14 @@ export const CharacterList = ({ data, fetchPreviousPage, fetchNextPage }) => {
         <Container>
             <ContainerList>
                 {data?.results?.map((character) => (
-                    <Character character={character} />
+                    <Character key={character.id} character={character} />
                 ))}
             </ContainerList>
-            <Pagination pagination={data?.info}
-                fetchNextPage={(url) => fetchNextPage = (url)}
-                fetchPreviousPage={(url) => fetchPreviousPage(url)} />
+            <Pagination
+                pagination={data?.info}
+                fetchNextPage={(url) => fetchNextPage(url)}
+                fetchPreviousPage={(url) => fetchPreviousPage(url)} 
+            />
         </Container>
-    )
+    )
 }
