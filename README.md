@@ -6,8 +6,8 @@ Esse projeto foi criado com o Vite, foi desenvolvido com React e JavaScript. Os 
 ## 📥 Instalação
 Clone o repositório e instale as dependências:
 ```
-git clone https://github.com/luisafalquetoz/projeto-gta.git
-cd projeto-gta
+git clone https://github.com/luisafalquetoz/ricky-morty-api.git
+cd ricky-morty-api
 npm install
 ```
 
